@@ -6,7 +6,10 @@ const Card = (props) => {
     props.renderDetail(props.displayName);
   };
   return (
-    <CardContainer onClick={onClickHandler}>
+    <CardContainer
+      onClick={onClickHandler}
+      to={`/skins/${props.displayName.replace(/\s+/g, "")}`}
+    >
       <h1>{props.displayName}</h1>
       <ImgContainer>
         <CardImg src={props.displayIcon} />

@@ -3,12 +3,12 @@ import Card from "../Card/Card";
 import Detail from "../Detail/Detail";
 import NavBar from "../NavBar/NavBar";
 import { MainContainer } from "./MainElements";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Main = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const [render, setRender] = useState(false);
   const [name, setName] = useState("");
 
   useEffect(() => {
@@ -37,7 +37,6 @@ const Main = () => {
 
   const renderDetail = (n) => {
     setName(n);
-    setRender(!render);
   };
 
   const createCard = (data) => {
@@ -57,15 +56,19 @@ const Main = () => {
     return <div>Loading...</div>;
   } else {
     return (
-      <>
+      <Router>
         <NavBar />
-
-        {render ? (
-          <Detail displayName={name} />
-        ) : (
-          <MainContainer> {items.map(createCard)} </MainContainer>
-        )}
-      </>
+        <Routes>
+          <Route
+            path="/"
+            element={<MainContainer> {items.map(createCard)} </MainContainer>}
+          />
+          <Route
+            path={`/skins/${name.replace(/\s+/g, "")}`}
+            element={<Detail displayName={name} />}
+          />
+        </Routes>
+      </Router>
     );
   }
 };

@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const CardContainer = styled.article`
+export const CardContainer = styled(Link)`
   max-width: 500px;
+  text-decoration: none;
   cursor: pointer;
 `;
 
