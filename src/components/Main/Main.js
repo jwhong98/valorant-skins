@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
+import Detail from "../Detail/Detail";
 import NavBar from "../NavBar/NavBar";
 import { MainContainer } from "./MainElements";
 
@@ -7,6 +8,8 @@ const Main = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  const [render, setRender] = useState(false);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     fetch("https://valorant-api.com/v1/bundles")
@@ -14,8 +17,16 @@ const Main = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          console.log(result);
-          setItems(result.data);
+          //sort result.data alphabetically by displayName and set it to items
+          setItems(
+            result.data.sort((a, b) =>
+              a.displayName > b.displayName
+                ? 1
+                : b.displayName > a.displayName
+                ? -1
+                : 0
+            )
+          );
         },
         (error) => {
           setIsLoaded(true);
@@ -24,12 +35,18 @@ const Main = () => {
       );
   }, []);
 
+  const renderDetail = (n) => {
+    setName(n);
+    setRender(!render);
+  };
+
   const createCard = (data) => {
     return (
       <Card
         key={data.uuid}
         displayName={data.displayName}
         displayIcon={data.displayIcon}
+        renderDetail={renderDetail}
       />
     );
   };
@@ -42,7 +59,12 @@ const Main = () => {
     return (
       <>
         <NavBar />
-        <MainContainer>{items.map(createCard)}</MainContainer>
+
+        {render ? (
+          <Detail displayName={name} />
+        ) : (
+          <MainContainer> {items.map(createCard)} </MainContainer>
+        )}
       </>
     );
   }

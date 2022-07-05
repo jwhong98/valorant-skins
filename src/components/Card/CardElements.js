@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CardContainer = styled.article`
   max-width: 500px;
+  cursor: pointer;
 `;
 
 export const ImgContainer = styled.div`
