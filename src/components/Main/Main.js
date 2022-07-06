@@ -4,12 +4,15 @@ import Detail from "../Detail/Detail";
 import NavBar from "../NavBar/NavBar";
 import { MainContainer } from "./MainElements";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ImageZoom from "../ImageZoom/ImageZoom";
 
 const Main = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [img, setImg] = useState("");
 
   useEffect(() => {
     fetch("https://valorant-api.com/v1/bundles")
@@ -39,6 +42,15 @@ const Main = () => {
     setName(n);
   };
 
+  const onOpen = (e) => {
+    setImg(e);
+    setIsOpen(true);
+  };
+
+  const onClose = () => {
+    setIsOpen(false);
+  };
+
   const createCard = (data) => {
     return (
       <Card
@@ -57,6 +69,7 @@ const Main = () => {
   } else {
     return (
       <Router>
+        {isOpen && <ImageZoom onClick={onClose} img={img} />}
         <NavBar />
         <Routes>
           <Route
@@ -65,7 +78,7 @@ const Main = () => {
           />
           <Route
             path={`/skins/${name.replace(/\s+/g, "")}`}
-            element={<Detail displayName={name} />}
+            element={<Detail displayName={name} onClick={onOpen} />}
           />
         </Routes>
       </Router>

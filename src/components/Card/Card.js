@@ -1,5 +1,10 @@
 import React from "react";
-import { CardContainer, ImgContainer, CardImg } from "./CardElements";
+import {
+  CardContainer,
+  CardTitle,
+  ImgContainer,
+  CardImg,
+} from "./CardElements";
 
 const Card = (props) => {
   const onClickHandler = () => {
@@ -10,7 +15,7 @@ const Card = (props) => {
       onClick={onClickHandler}
       to={`/skins/${props.displayName.replace(/\s+/g, "")}`}
     >
-      <h1>{props.displayName}</h1>
+      <CardTitle>{props.displayName}</CardTitle>
       <ImgContainer>
         <CardImg src={props.displayIcon} />
       </ImgContainer>

@@ -20,4 +20,5 @@ export const DetailImgContainer = styled.div`
 export const DetailImg = styled.img`
   max-width: 100%;
   height: 100%;
+  cursor: zoom-in;
 `;

@@ -6,11 +6,14 @@ import {
 } from "./DetailCardElements";
 
 const DetailCard = (props) => {
+  const onClickHandler = () => {
+    props.onClick(props.displayIcon);
+  };
   return (
     <DetailCardContainer>
       <h1>{props.displayName}</h1>
       <DetailImgContainer>
-        <DetailImg src={props.displayIcon} />
+        <DetailImg src={props.displayIcon} onClick={onClickHandler} />
       </DetailImgContainer>
     </DetailCardContainer>
   );

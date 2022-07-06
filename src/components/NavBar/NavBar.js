@@ -1,10 +1,12 @@
 import React from "react";
-import { NavContainer, NavWrap } from "./NavBarElements";
+import { NavContainer, NavWrap, NavHead } from "./NavBarElements";
 
 const NavBar = () => {
   return (
     <NavContainer>
-      <NavWrap>Valorant Skins</NavWrap>
+      <NavWrap>
+        <NavHead to="/">Valorant Skins</NavHead>
+      </NavWrap>
     </NavContainer>
   );
 };

@@ -7,6 +7,11 @@ export const CardContainer = styled(Link)`
   cursor: pointer;
 `;
 
+export const CardTitle = styled.h1`
+  font-size: 20px;
+  margin-bottom: 15px;
+`;
+
 export const ImgContainer = styled.div`
   width: 100%;
 `;

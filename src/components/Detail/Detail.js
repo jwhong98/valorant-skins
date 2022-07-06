@@ -28,12 +28,13 @@ const Detail = (props) => {
         key={data.uuid}
         displayName={data.displayName}
         displayIcon={data.displayIcon}
+        onClick={props.onClick}
       />
     );
   };
   return (
     <DetailContainer>
-      <DetailHead>{props.displayName}</DetailHead>
+      <DetailHead>{props.displayName} Bundle</DetailHead>
       <DetailWrap>{bundle.map(createDetailCard)}</DetailWrap>
     </DetailContainer>
   );
