@@ -13,10 +13,9 @@ export const DropContainer = styled.div`
 `;
 
 export const ZoomContainer = styled.div`
-  max-width: 400px;
+  max-width: 1300px;
   max-height: 420px;
   border-radius: 10px;
-  background: #fff;
   z-index: 31;
   position: absolute;
   left: 0;
@@ -27,7 +26,7 @@ export const ZoomContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: auto;
   margin-bottom: auto;
   padding: 30px;
@@ -44,4 +43,6 @@ export const CloseIcon = styled.img`
   cursor: pointer;
 `;
 
-export const ZoomImg = styled.img``;
+export const ZoomImg = styled.img`
+  object-fit: cover;
+`;
