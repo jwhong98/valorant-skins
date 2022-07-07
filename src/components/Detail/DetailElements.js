@@ -7,7 +7,10 @@ export const DetailContainer = styled.article`
 `;
 
 export const DetailHead = styled.h1`
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
 `;
 
 export const DetailWrap = styled.div`

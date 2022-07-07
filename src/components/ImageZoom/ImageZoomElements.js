@@ -44,5 +44,6 @@ export const CloseIcon = styled.img`
 `;
 
 export const ZoomImg = styled.img`
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 `;

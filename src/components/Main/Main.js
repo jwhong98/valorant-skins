@@ -13,22 +13,39 @@ const Main = () => {
   const [name, setName] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [img, setImg] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetch("https://valorant-api.com/v1/bundles")
       .then((res) => res.json())
       .then(
         (result) => {
+          // remove Give Back, Pride, and Run It Back bundles from displaying
+          const filtered = result.data.filter(
+            (bundle) =>
+              bundle.displayName !== "Give Back" &&
+              bundle.displayName !== "Pride" &&
+              bundle.displayName !== "Run It Back"
+          );
+          filtered.sort((a, b) =>
+            a.displayName > b.displayName
+              ? 1
+              : b.displayName > a.displayName
+              ? -1
+              : 0
+          );
           setIsLoaded(true);
           //sort result.data alphabetically by displayName and set it to items
           setItems(
-            result.data.sort((a, b) =>
-              a.displayName > b.displayName
-                ? 1
-                : b.displayName > a.displayName
-                ? -1
-                : 0
-            )
+            filtered.filter((bundle) => {
+              if (query === "") {
+                return bundle;
+              } else if (
+                bundle.displayName.toLowerCase().includes(query.toLowerCase())
+              ) {
+                return bundle;
+              }
+            })
           );
         },
         (error) => {
@@ -36,7 +53,7 @@ const Main = () => {
           setError(error);
         }
       );
-  }, []);
+  }, [query]);
 
   const renderDetail = (n) => {
     setName(n);
@@ -70,7 +87,7 @@ const Main = () => {
     return (
       <Router>
         {isOpen && <ImageZoom onClick={onClose} img={img} />}
-        <NavBar />
+        <NavBar setQuery={setQuery} />
         <Routes>
           <Route
             path="/"

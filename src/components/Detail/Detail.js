@@ -3,9 +3,6 @@ import DetailCard from "./DetailCard";
 import { DetailContainer, DetailHead, DetailWrap } from "./DetailElements";
 
 const Detail = (props) => {
-  // https://valorant-api.com/v1/weapons/skins
-  // use to get guns in the bundle by the bundle's displayName
-
   const [bundle, setBundle] = useState([]);
 
   useEffect(() => {
