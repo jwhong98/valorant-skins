@@ -9,15 +9,17 @@ export const DropContainer = styled.div`
   z-index: 30;
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0.9;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 export const ZoomContainer = styled.div`
+  width: 100%;
+  height: 100%;
   max-width: 1300px;
   max-height: 420px;
   border-radius: 10px;
   z-index: 31;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -34,13 +36,15 @@ export const ZoomContainer = styled.div`
 
 export const ZoomHead = styled.header`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  display: none;
 `;
 
 export const CloseIcon = styled.img`
   cursor: pointer;
+  background-color: #fff;
+  margin-left: auto;
 `;
 
 export const ZoomImg = styled.img`

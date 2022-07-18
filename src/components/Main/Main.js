@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import Detail from "../Detail/Detail";
 import NavBar from "../NavBar/NavBar";
-import { MainContainer } from "./MainElements";
+import { MainContainer, MainWrap } from "./MainElements";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ImageZoom from "../ImageZoom/ImageZoom";
 
@@ -91,7 +91,11 @@ const Main = () => {
         <Routes>
           <Route
             path="/"
-            element={<MainContainer> {items.map(createCard)} </MainContainer>}
+            element={
+              <MainContainer>
+                <MainWrap>{items.map(createCard)}</MainWrap>
+              </MainContainer>
+            }
           />
           <Route
             path={`/skins/${name.replace(/\s+/g, "")}`}

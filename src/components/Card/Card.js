@@ -17,7 +17,7 @@ const Card = (props) => {
     >
       <CardTitle>{props.displayName}</CardTitle>
       <ImgContainer>
-        <CardImg src={props.displayIcon} />
+        <CardImg src={props.displayIcon} alt={props.displayName} />
       </ImgContainer>
     </CardContainer>
   );

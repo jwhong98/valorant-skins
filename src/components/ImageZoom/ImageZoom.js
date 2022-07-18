@@ -24,7 +24,7 @@ const ImageZoom = (props) => {
             <ZoomHead>
               <CloseIcon src={close} onClick={props.onClick} />
             </ZoomHead>
-            <ZoomImg src={props.img} />
+            <ZoomImg src={props.img} alt="skin" />
           </ZoomContainer>
         </>,
         portalElement

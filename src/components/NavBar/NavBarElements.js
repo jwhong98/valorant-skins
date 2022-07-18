@@ -7,6 +7,7 @@ export const NavContainer = styled.section`
   margin-bottom: 2rem;
   position: sticky;
   top: 0;
+  padding: 0 20px;
 `;
 
 export const NavWrap = styled.nav`

@@ -13,7 +13,11 @@ const DetailCard = (props) => {
     <DetailCardContainer>
       <h1>{props.displayName}</h1>
       <DetailImgContainer>
-        <DetailImg src={props.displayIcon} onClick={onClickHandler} />
+        <DetailImg
+          src={props.displayIcon}
+          onClick={onClickHandler}
+          alt={props.displayName + " skin"}
+        />
       </DetailImgContainer>
     </DetailCardContainer>
   );
