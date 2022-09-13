@@ -4,6 +4,7 @@ export const DetailContainer = styled.article`
   width: 100%;
   max-width: 1300px;
   margin: auto;
+  padding: 0 20px;
 `;
 
 export const DetailHead = styled.h1`
@@ -20,4 +21,8 @@ export const DetailWrap = styled.div`
   align-items: center;
   justify-items: center;
   gap: 3rem;
+
+  @media only screen and (max-width: 693px) {
+    grid-template-columns: 1fr;
+  }
 `;

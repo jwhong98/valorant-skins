@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
 export const DetailCardContainer = styled.article`
-  width: 512px;
+  width: 100%;
+  max-width: 512px;
   height: 300px;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 693px) {
+    height: 250px;
+  }
 `;
 
 export const DetailImgContainer = styled.div`
