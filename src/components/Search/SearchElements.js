@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const SearchForm = styled.form``;
+export const SearchForm = styled.form`
+  display: flex;
+`;
 
 export const SearchLabel = styled.label`
   clip: rect(0 0 0 0);
@@ -20,6 +22,10 @@ export const SearchInput = styled.input`
   background: rgba(232, 230, 227, 0.7);
   border-radius: 10px;
   color: #2a2d2f;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 150px;
+  }
 `;
 
 export const SearchButton = styled.button`

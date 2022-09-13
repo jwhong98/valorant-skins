@@ -25,8 +25,10 @@ const Main = () => {
             (bundle) =>
               bundle.displayName !== "Give Back" &&
               bundle.displayName !== "Pride" &&
-              bundle.displayName !== "Run It Back"
+              bundle.displayName !== "Run It Back" &&
+              bundle.displayName !== "Luxe"
           );
+          //sort result.data alphabetically by displayName
           filtered.sort((a, b) =>
             a.displayName > b.displayName
               ? 1
@@ -35,7 +37,6 @@ const Main = () => {
               : 0
           );
           setIsLoaded(true);
-          //sort result.data alphabetically by displayName and set it to items
           setItems(
             filtered.filter((bundle) => {
               if (query === "") {
@@ -45,6 +46,7 @@ const Main = () => {
               ) {
                 return bundle;
               }
+              // return filtered;
             })
           );
         },

@@ -15,11 +15,18 @@ export const CardTitle = styled.h1`
 export const ImgContainer = styled.div`
   width: 100%;
   border-radius: 10px;
+  height: 200px;
+  display: flex;
+  @media only screen and (max-width: 1027px) {
+    height: 230px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    height: auto;
+  }
 `;
 
 export const CardImg = styled.img`
   width: 100%;
-  height: 200px;
-  object-fit: cover;
   border-radius: 10px;
 `;

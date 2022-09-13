@@ -12,4 +12,13 @@ export const MainWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+
+  @media only screen and (max-width: 1027px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 693px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
